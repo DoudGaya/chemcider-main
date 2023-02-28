@@ -1,6 +1,13 @@
 import { useState } from 'react'
 import homeBannerIMG from '../assets/dark.jpg'
 import Community from './Community'
+import Footer from './parts/Footer'
+import GenAI from './parts/GenerativeAI'
+import Jobs from './parts/Jobs'
+import Navigation from './parts/Navigations'
+import Partners from './parts/Partners'
+import Company from './parts/TheCompany'
+import Store from './Store'
 
 interface HomeDetails {
   id: number
@@ -59,11 +66,9 @@ const benefits = details.map((items) => {
 
 
 function Home() {
-
   return (
     <>
   <div className="flex flex-col  dark:bg-[#000A16] text-slate-900 dark:text-slate-100 w-full">
-
   <div className=" grid grid-cols-2 gap-x-6  mx-auto">
       {/* THE HOME PAGE HERE... */}
       <div className=" dark:bg-[#000A16] text-slate-900 dark:text-slate-100 ">
@@ -129,49 +134,53 @@ function Home() {
       {/* END OF THE HomeS WINDOWS */}
 
   </div>
+    <Navigation />
+    {/* the community */}
+      <section className=' bg-slate-200'>
+        <div className="w-[1200px] mx-auto">
+            <Community />
+          </div>
+      </section>
+    {/* end of community */}
 
-  <div className=" bg-gradient-to-b from-transparent to-white dark:to-black shadow-lg h-16 items-center justify-center">
-  <div className="w-[1400px] mx-auto flex justify-between h-full items-center">
-      <div className="">
-        <a href="" className='font-bold px-3 '>
-        Chemcider Inc
-        </a>
-      </div>
+     {/* PARTNERS */}
+     <section className=' bg-slate-900'>
+          <div className='w-[1200px] mx-auto'>
+           <Jobs />
+          </div>
+        </section>
+      {/* END OF PARTNERS */}
 
-      <ul className='flex flex-row space-x-6 '>
-          <li>
-            <a href="" className=" flex hover:underline px-4">
-            Home
-            </a>
-          </li>
-          <li>
-            <a href="" className=" flex hover:underline px-4">
-            About
-            </a>
-          </li>
-          <li>
-            <a href="" className=" flex hover:underline px-4">
-            Community
-            </a>
-          </li>
-          <li>
-            <a href="" className="flex hover:underline px-4">
-            Store
-            </a>
-          </li>
-        <li>
-          <a href="" className="flex hover:underline px-4">
-            Generative AI
-          </a>
-        </li>
-      </ul>
+       {/* PARTNERS */}
+     <section className=''>
+          <div className='w-[1200px] mx-auto'>
+           <GenAI />
+          </div>
+        </section>
+      {/* END OF PARTNERS */}
 
-      </div>
-  </div>
-   <Community />
-   <div className="">
-    
-   </div>
+      {/* THE STORE */}
+      <section className=' bg-slate-200'>
+        <div className=" w-[1200px] mx-auto ">
+            <Store />
+          </div>
+      </section>
+      {/* END OF STORE */}
+
+      {/* PARTNERS */}
+        <section className=''>
+          <div className='w-[1200px] mx-auto'>
+            <Partners />
+          </div>
+        </section>
+
+        {/* END OF PARTNERS */}
+
+        <section className=' py-10 bg-slate-900 '>
+          <div className=' mx-auto w-[1400px] '>
+            <Footer />
+          </div>
+        </section> 
   </div>
     </>
   )
