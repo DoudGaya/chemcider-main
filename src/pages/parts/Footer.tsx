@@ -43,8 +43,8 @@ const urls = footerLinks.map( (items )  => <ProductsLinks key={items.id} items={
 
 const Footer = () => {
     return (
-        <div className=" grid grid-cols-4">
-            <div className=" text-slate-200 flex flex-col border-r pr-6">
+        <div className=" grid gap-y-6 md:gap-y-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div className=" px-6 md:px-0 text-slate-200 flex flex-col border-r pr-6">
                 <h3 className=" text-lg font-semibold">About Us</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, ad officiis deserunt tenetur placeat nam, sint voluptatum, facilis inventore dolorem dicta vero quae. Corrupti sint maxime doloribus quaerat, numquam voluptatum!</p>
             </div>
@@ -52,33 +52,33 @@ const Footer = () => {
             <h3 className=" text-lg font-semibold">Products</h3>
                 {urls}
             </div>
-            <div className=" text-slate-200 flex flex-col border-r px-4">
+            <div className=" text-slate-200 flex flex-col border-r px-6">
                 <h3 className=" text-lg font-semibold">Sitemap</h3>
                 <ul className=" flex flex-col space-y-2 my-2">
-                    <li className=" w-full ">
+                    <li className=" w-full">
                         <a href="" className=" hover:underline">Home</a>
                     </li>
 
-                    <li className=" w-full ">
+                    <li className=" w-full">
                         <a href="" className=" hover:underline">Jobs</a>
                     </li>
                     
-                    <li className=" w-full ">
+                    <li className=" w-full">
                         <a href="" className=" hover:underline">Generative AIs</a>
                     </li>
                     
-                    <li className=" w-full ">
+                    <li className=" w-full">
                         <a href="" className=" hover:underline">Store</a>
                     </li>
 
                 </ul>
             </div>
-            <div className=" text-slate-200 flex flex-col px-4">
+            <div className=" text-slate-200 flex flex-col px-6">
                 <h3 className=" text-lg font-semibold">Contact</h3>
                 <form action="" className=" flex space-y-2 flex-col my-2">
-                    <input type="text" className=" w-full bg-slate-500 py-2 px-4 placeholder:text-slate-300 outline-none border border-slate-400 " placeholder="Email" />
-                    <input type="text" className=" w-full bg-slate-500 py-2 px-4 placeholder:text-slate-300 outline-none border border-slate-400 " placeholder="Name" />
-                    <textarea className=" w-full bg-slate-500 py-2 px-4 placeholder:text-slate-300 outline-none border border-slate-400 h-[100px] " placeholder="Message" ></textarea>
+                    <input type="text" className=" w-full bg-slate-200 py-2 px-4 placeholder:text-slate-700 outline-none border border-slate-400 " placeholder="Email" />
+                    <input type="text" className=" w-full bg-slate-200 py-2 px-4 placeholder:text-slate-700 outline-none border border-slate-400 " placeholder="Name" />
+                    <textarea className=" w-full bg-slate-200 py-2 px-4 placeholder:text-slate-700 outline-none border border-slate-400 h-[100px] " placeholder="Message" ></textarea>
                     <button className=" bg-[rgb(72,149,144)] w-full py-2 ">Send Us a Message</button>
                 </form>
             </div>

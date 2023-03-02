@@ -39,7 +39,7 @@ const jobs = [
         id: 1,
         link: '#',
         size: 'big',
-        logo: 'RemoteOK'
+        logo: 'Remote OK'
     },
     {
         id: 1,
@@ -67,9 +67,9 @@ const Jobs = () => {
         <div className=" py-10 flex flex-col space-y-6">
            <div className=" flex w-full items-center flex-col">
             <h3 className=" text-2xl font-bold text-white mx-auto">International Jobs</h3>
-                <p className=" text-white mx-auto">Get access to quality international Jobs with our partners </p>
+                <p className=" text-white mx-auto px-8 md:px-0 text-center text-lg">Get access to quality international Jobs with our partners </p>
            </div>
-            <div className="grid grid-cols-6 gap-2">
+            <div className="grid md:grid-cols-6 px-8 grid-cols-1 gap-4">
                 {jobbings}
             </div>
         </div>

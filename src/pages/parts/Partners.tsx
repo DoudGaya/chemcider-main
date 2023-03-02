@@ -64,7 +64,7 @@ const Partners = () => {
         <>
           <div className=" my-10 flex flex-col items-center w-full">
                     <p className=' text-lg font-semibold'>Our Partners and Suppliers</p>
-                    <div className="grid w-full grid-cols-4 gap-x-4 p-10 gap-y-2">
+                    <div className="grid w-full grid-cols-1 md:grid-cols-4 md:gap-x-4 p-10 gap-y-4 md:gap-y-2">
                        {data}
                     </div>
             </div>
