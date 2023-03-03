@@ -33,7 +33,7 @@ const footerLinks: FooterLinks[] = [
 
 const ProductsLinks = ({ items }: any) => {
     return (
-        <a href={items.link} className=" bg-slate-600 transform hover:bg-slate-700 ease-in-out duration-100 py-2  px-6">
+        <a href={items.link} className=" bg-slate-600  transform hover:bg-slate-700 ease-in-out duration-100 py-2  px-6">
             {items.name}
         </a>
     )
@@ -44,15 +44,15 @@ const urls = footerLinks.map( (items )  => <ProductsLinks key={items.id} items={
 const Footer = () => {
     return (
         <div className=" grid gap-y-6 md:gap-y-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            <div className=" px-6 md:px-0 text-slate-200 flex flex-col border-r pr-6">
+            <div className=" px-6 md:px-0 text-slate-200 flex flex-col md:border-r pr-6">
                 <h3 className=" text-lg font-semibold">About Us</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, ad officiis deserunt tenetur placeat nam, sint voluptatum, facilis inventore dolorem dicta vero quae. Corrupti sint maxime doloribus quaerat, numquam voluptatum!</p>
             </div>
-            <div className=" text-slate-200 flex flex-col border-r space-y-3 px-6">
+            <div className=" text-slate-200 flex flex-col md:border-r space-y-3 px-6">
             <h3 className=" text-lg font-semibold">Products</h3>
                 {urls}
             </div>
-            <div className=" text-slate-200 flex flex-col border-r px-6">
+            <div className=" text-slate-200 flex flex-col md:border-r px-6">
                 <h3 className=" text-lg font-semibold">Sitemap</h3>
                 <ul className=" flex flex-col space-y-2 my-2">
                     <li className=" w-full">

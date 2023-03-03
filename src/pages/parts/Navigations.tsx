@@ -10,7 +10,7 @@ const Navigation = () => {
 
             <ul className='flex flex-row space-x-6'>
                 <li>
-                    <a href="" className=" flex hover:underline px-4">
+                    <a href="#genai" className=" flex hover:underline px-4">
                     Home
                     </a>
                 </li>

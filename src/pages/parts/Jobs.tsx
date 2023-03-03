@@ -69,7 +69,7 @@ const Jobs = () => {
             <h3 className=" text-2xl font-bold text-white mx-auto">International Jobs</h3>
                 <p className=" text-white mx-auto px-8 md:px-0 text-center text-lg">Get access to quality international Jobs with our partners </p>
            </div>
-            <div className="grid md:grid-cols-6 px-8 grid-cols-1 gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-6 px-8 grid-cols-1 gap-4">
                 {jobbings}
             </div>
         </div>
