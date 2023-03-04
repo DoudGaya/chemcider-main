@@ -47,7 +47,7 @@ const partners: PartnerData[] = [
 const Partner = ( {partners}: any ) => {
     return (
         <>
-         <a href={partners.url} className="h-[120px] flex dark:brightness-50 items-center rounded-2xl hover:scale-105 transition-all ease-in-out justify-center bg-white overflow-hidden p-4  ">
+         <a href={partners.url} className="h-[120px] flex dark:brightness-[90%]  items-center rounded-2xl hover:scale-105 transition-all ease-in-out justify-center bg-white overflow-hidden p-4  ">
             <img src={partners.img} alt={partners.altText} className=" object-contain object-center" />
         </a>
         </>

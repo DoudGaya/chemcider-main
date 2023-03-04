@@ -7,7 +7,7 @@ const Store = () => {
            {/* <h2 className='text-2xl font-semibold mb-6'>Our Resource Store for Scientist, Engineers and Manufacturers </h2> */}
            </div>
             <div className=" grid grid-cols-1 md:grid-cols-2 md:gap-x-10 gap-y-6 px-6 ">
-                <div className="h-[400px] items-center justify-center dark:brightness-50">
+                <div className="h-[400px] items-center justify-center dark:brightness-[90%]">
                     <h2 className=" text-2xl md:hidden font-semibold flex text-center ">Discover, Reasearch and Technical products in our Store</h2>
                     <img src={products} alt="" className=' object-contain object-center w-full h-full ' srcSet="" />
                 </div>

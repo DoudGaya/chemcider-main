@@ -1,5 +1,5 @@
 import openai from '../../assets/openai.svg'
- import { SiOpenai } from 'react-icons/si'
+import { SiOpenai } from 'react-icons/si'
 
 
 const aitexts = [
@@ -36,7 +36,6 @@ const AIS = ({ items }: any) => {
 }
 
 
-
 const aicontents = aitexts.map( items => <AIS items={items} />)
 
 const GenAI = () => {
@@ -56,6 +55,5 @@ const GenAI = () => {
         </>
     )
 }
-
 
 export default GenAI

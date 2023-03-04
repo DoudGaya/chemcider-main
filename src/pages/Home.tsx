@@ -65,6 +65,24 @@ const benefits = details.map((items) => {
 })
 
 
+
+// const comingSoon = () => {
+//   Swal.fire({
+//     title: 'Custom width, padding, color, background.',
+//     width: 600,
+//     padding: '3em',
+//     color: '#716add',
+//     background: '#fff url(/images/trees.png)',
+//     backdrop: `
+//       rgba(0,0,123,0.4)
+//       url("/images/nyan-cat.gif")
+//       left top
+//       no-repeat
+//     `
+//   })
+// }
+
+
 function Home() {
   return (
   <>
@@ -88,7 +106,7 @@ function Home() {
 
 
       <div className="dark:text-slate-100">
-        <h2 className=' text-2xl text-center md:text-start font-semibold '>Your Ultimate Destination for Scientific and Engineering Solutions</h2>
+        <h2 className=' text-2xl text-start font-semibold '>Your Ultimate Destination for Scientific and Engineering Solutions</h2>
         <p className=' my-6 text-lg'>
             Our mission is to provide scientists and engineers with access to quality products and connections that will help 
             them advance their research and projects. 
