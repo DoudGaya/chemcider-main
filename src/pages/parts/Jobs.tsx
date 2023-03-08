@@ -15,34 +15,34 @@ const jobs = [
     },
 
     {
-        id: 1,
+        id: 2,
         link: '#',
         size: 'small',
         logo: 'Vanhack'
     },
 
     {
-        id: 1,
+        id: 3,
         link: '#',
         size: 'big',
         logo: 'LinkedIn'
     },
 
     {
-        id: 1,
+        id: 4,
         link: '#',
         size: 'big',
         logo: 'Flex Jobs'
     },
 
     {
-        id: 1,
+        id: 5,
         link: '#',
         size: 'big',
         logo: 'Remote OK'
     },
     {
-        id: 1,
+        id: 6,
         link: '#',
         size: 'big',
         logo: 'Upwork'

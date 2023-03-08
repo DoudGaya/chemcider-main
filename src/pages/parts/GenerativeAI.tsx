@@ -10,7 +10,7 @@ const aitexts = [
     },
 
     {
-        id: 1,
+        id: 2,
         title: 'Generate visual results with DALL-E',
         description: 'We offers engineers and scientists the ability to generate visually stunning images using DALL-E, a powerful image generation model developed by OpenAI. Our platform provides an easy-to-use and efficient interface for generating unique and complex images that can enhance technical work. DALL-E is trained on a vast dataset and constantly improving to meet the needs of the scientific community. With just a few clicks, users can customize their images to match their needs, making DALL-E an essential tool for enhancing visual communication in engineering and science.'
     }
@@ -36,7 +36,7 @@ const AIS = ({ items }: any) => {
 }
 
 
-const aicontents = aitexts.map( items => <AIS items={items} />)
+const aicontents = aitexts.map( items => <AIS key={items.id} items={items} />)
 
 const GenAI = () => {
     return (

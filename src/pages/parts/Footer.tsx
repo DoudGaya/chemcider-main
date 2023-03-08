@@ -25,7 +25,7 @@ const footerLinks: FooterLinks[] = [
         name: 'Community'
     },
     {
-        id: 3,
+        id: 4,
         link: '#',
         name: 'Chemcider Store'
     },
@@ -82,7 +82,6 @@ const Footer = () => {
                     <button className=" bg-[rgb(72,149,144)] w-full py-2 ">Send Us a Message</button>
                 </form>
             </div>
-            footer here
         </div>
     )
 }

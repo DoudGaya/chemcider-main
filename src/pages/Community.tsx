@@ -1,8 +1,7 @@
 import comIMG from '../assets/community.png'
 import comIMGDark from '../assets/community_dark.png'
 
-
-const Community = () => {
+const Community = ( { openModal }: any) => {
     return (
         <>
         <section className=" flex flex-col px-6 md:px-0 mb-10 ">
