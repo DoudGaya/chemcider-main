@@ -10,6 +10,8 @@ import Company from './parts/TheCompany'
 import Store from './Store'
 import Modal from '../Modal'
 import Details from './HomeDetails'
+import ClickAwayListener from 'react-click-away-listener';
+
 
 
 
@@ -63,7 +65,7 @@ function Home() {
   const [modal, setModal] = useState<boolean>(true);
 
 
-  
+
   const closeModal = (): any => {
     return setModal(false)
   }
@@ -72,6 +74,10 @@ function Home() {
     return setModal(true)
   }
 
+
+  const clickAway = () => {
+    return setModal(false)
+  }
 
   return (
   <>
@@ -98,9 +104,11 @@ function Home() {
 
   { modal ? 
 
+<ClickAwayListener onClickAway={clickAway}>
   <div className=" w-full z-50 flex items-center px-6 h-screen justify-center fixed">
     <Modal closeModal={closeModal} />
   </div>
+</ClickAwayListener>
 
 
   : '' }
