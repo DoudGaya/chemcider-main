@@ -18,30 +18,36 @@ const switchModal = () => {
     <>
     <div className="fixed flex flex-col space-y-6 md:hidden z-50 px-6  py-6 bottom-0 w-full ">
         
+       {
+        modal ?
         <div className=" bg-[rgb(21,113,173)] px-4 flex items-center py-3 h-[400px] rounded-md ">
-            <ul className=" w-full my-auto space-y-6">
-                <li className=" w-full flex">
-                    <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
-                        Community 
-                    </a>
-                </li>
-                <li className=" w-full flex">
-                    <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
-                        generative AIs
-                    </a>
-                </li>
-                <li className=" w-full flex">
-                    <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
-                        Store
-                    </a>
-                </li>
-                <li className=" w-full flex">
-                    <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
-                        Jobs 
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <ul className=" w-full my-auto space-y-6">
+            <li className=" w-full flex">
+                <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
+                    Community 
+                </a>
+            </li>
+            <li className=" w-full flex">
+                <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
+                    generative AIs
+                </a>
+            </li>
+            <li className=" w-full flex">
+                <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
+                    Store
+                </a>
+            </li>
+            <li className=" w-full flex">
+                <a href="" className=" text-slate-100 text-lg font-semibold bg-[rgb(28,71,100)] rounded-lg px-5 py-4 w-full">
+                    Jobs 
+                </a>
+            </li>
+        </ul>
+    </div>
+    :
+    ''
+        
+       }
 
 
     <div className=" flex justify-between items-center bg-[rgb(21,113,173)] drop-shadow-xl rounded-lg px-4 py-3">
