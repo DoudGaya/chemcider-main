@@ -9,21 +9,24 @@ import Partners from './parts/Partners'
 import Company from './parts/TheCompany'
 import Store from './Store'
 import Modal from '../Modal'
+import Details from './HomeDetails'
 
+
+
+
+
+// INTERFACES
 interface HomeDetails {
   id: number
   title: string
   description: string
 }
 
-
 interface ModalFunc {
   closeModal: () => void
 }
 
-
-
-
+// variables and arrays 
 const details: HomeDetails[] = [
   {
     id: 1,
@@ -50,45 +53,26 @@ const details: HomeDetails[] = [
   },
 ]
 
-const Details = ({ items }:any) => {
-  return (
-    <>
-       <details className='flex justify-start w-full dark:open:bg-black open:bg-slate-50 space-y-4 open:shadow-lg open:backdrop-blur-md p-6 open:rounded-lg'>
-        <summary className='cursor-pointer selection:bg-none open:font-bold open:bg-yellow-300 flex items-center space-x-2'>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 flex-none h-4">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-      </svg>
-          <h3 className=' w-full'>{items.title}</h3>
-        </summary>
-        <div className="">
-            <p>{items.description}</p>
-        </div>
-     </details>
-    </>
-  )
-}
 
 const benefits = details.map((items) => {
   return <Details items={items} key={items.id} />
 })
 
 
-
-let modal: boolean = false
-
-
-const closeModal = (): boolean => {
- return modal = false
-}
-
-
-const openModal = (): boolean => {
-  return modal = true
-}
-
-
-
 function Home() {
+  const [modal, setModal] = useState<boolean>(true);
+
+
+  
+  const closeModal = (): any => {
+    return setModal(false)
+  }
+  
+  const openModal = (): any => {
+    return setModal(true)
+  }
+
+
   return (
   <>
  <div className=" flex flex-col relative ">
@@ -115,10 +99,12 @@ function Home() {
   { modal ? 
 
   <div className=" w-full z-50 flex items-center px-6 h-screen justify-center fixed">
-  <Modal closeModal={closeModal} />
+    <Modal closeModal={closeModal} />
   </div>
-  
+
+
   : '' }
+
 
   <div className="flex flex-col  dark:bg-[#000A16] text-slate-900 dark:text-slate-100 w-full">
   <div className=" grid md:grid-cols-2  grid-cols-1 md:gap-x-6 md:gap-y-0  mx-auto">
@@ -134,10 +120,10 @@ function Home() {
             <h1 className=' dark:text-slate-100 text-4xl font-semibold'>Chemcider Inc</h1>
             <p className=' dark:text-slate-100 tracking-wide text-lg'>Science Technology and Engineering</p>
           </div>
+
           <div className="h-[300px] rounded-lg overflow-hidden">
             <img src={homeBannerIMG} alt="" className='  object-cover w-full h-full ' />
           </div>
-
       <div className="dark:text-slate-100">
         <h2 className=' text-2xl text-start font-semibold '>Your Ultimate Destination for Scientific and Engineering Solutions</h2>
         <p className=' my-6 text-lg'>
@@ -205,7 +191,7 @@ function Home() {
        {/* PARTNERS */}
      <section className='' id='#genai'>
           <div className=' md:w-full lg:w-[1200px] mx-auto'>
-           <GenAI />
+           <GenAI openModal={openModal} />
           </div>
       </section>
       {/* END OF PARTNERS */}
