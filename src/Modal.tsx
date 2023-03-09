@@ -2,6 +2,7 @@ import { CiInstagram }from 'react-icons/ci'
 import { CiTwitter } from 'react-icons/ci'
 import { CiFacebook } from 'react-icons/ci'
 import { CiYoutube } from 'react-icons/ci'
+import ClickAwayListener from 'react-click-away-listener';
 
 
 interface ModalFunc {
@@ -12,12 +13,14 @@ const Modal = ({ closeModal }: ModalFunc) => {
 
     return (
         <>
+        <ClickAwayListener onClickAway={ closeModal } >
+
             <div className=" w-full md:w-2/5 h-[70vh] relative justify-between border border-[rgb(72,149,144)] drop-shadow-lg backdrop-blur-sm dark:bg-gradient-to-b text-white dark:to-[#000A16] dark:from-[#021226]  text z-50 bg-gradient-to-br from-slate-200 to-white rounded-2xl my-auto mx-auto flex flex-col ">
                 <div className=" flex flex-col space-y-10 items-center w-full py-10 px-10">
                     <p className=" text-2xl">Coming Soon...</p>
                    <div className=" py-2 flex space-y-4 flex-col w-full items-center">
                         <p>Join our Wait list and/or follow us on social media</p>
-                        <div className=" flex w-full ">
+                        <div className=" flex flex-col md:flex-row space-y-4 md:space-y-0 w-full ">
                         <input type="text" className=" dark:bg-slate-900 dark:border-slate-800 py-2 px-3 outline-none  border w-full " />
                         <button className="py-2 px-8 bg-[rgb(72,149,144)]">Join</button>
                         </div>
@@ -46,6 +49,8 @@ const Modal = ({ closeModal }: ModalFunc) => {
                     <button onClick={closeModal} className=" px-8 rounded-sm py-2 bg-[rgb(17,214,197)]">Close </button>
                 </div>
             </div>
+
+        </ClickAwayListener>
         </>
     )
 }

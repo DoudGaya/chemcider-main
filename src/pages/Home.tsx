@@ -62,7 +62,7 @@ const benefits = details.map((items) => {
 
 
 function Home() {
-  const [modal, setModal] = useState<boolean>(true);
+  const [modal, setModal] = useState<boolean>(false);
 
 
 
@@ -104,13 +104,11 @@ function Home() {
 
   { modal ? 
 
-<ClickAwayListener onClickAway={clickAway}>
-  <div className=" w-full z-50 flex items-center px-6 h-screen justify-center fixed">
+
+  <div className=" w-full z-50 flex items-center px-6 my-auto h-full justify-center fixed">
     <Modal closeModal={closeModal} />
   </div>
-</ClickAwayListener>
-
-
+  
   : '' }
 
 
@@ -207,7 +205,7 @@ function Home() {
       {/* THE STORE */}
       <section className=' bg-slate-200 w-full dark:bg-black py-10'>
         <div className=" md:w-full lg:w-[1200px] mx-auto ">
-            <Store />
+            <Store openModal={openModal} />
           </div>
       </section>
       {/* END OF STORE */}
