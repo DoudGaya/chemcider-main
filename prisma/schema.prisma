@@ -1,0 +1,139 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum VerificationType {
+  EMAIL
+  PASSWORD_RESET
+  TWO_FACTOR
+}
+
+model User {
+  id                    String    @id @default(cuid())
+  name                  String?
+  email                 String    @unique
+  emailVerified         DateTime?
+  password              String?
+  role                  UserRole  @default(USER)
+  image                 String?
+  referralCode          String    @unique
+  referredBy            String?
+  referredByUser        User?     @relation("UserReferrals", fields: [referredBy], references: [id], onDelete: SetNull)
+  referrals             User[]    @relation("UserReferrals")
+  isTwoFactorEnabled    Boolean   @default(false)
+  twoFactorConfirmation TwoFactorConfirmation?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  
+  wallet                Wallet?
+  investments           Investment[]
+  verifications         Verification[]
+  accounts              Account[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Verification {
+  id          String           @id @default(cuid())
+  userId      String
+  token       String           @unique
+  type        VerificationType
+  expires     DateTime
+  createdAt   DateTime         @default(now())
+  
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model TwoFactorConfirmation {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Wallet {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  balance     Float    @default(0)
+  referralBalance Float @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+}
+
+model Transaction {
+  id          String   @id @default(cuid())
+  walletId    String
+  amount      Float
+  type        String   // DEPOSIT, WITHDRAWAL, INVESTMENT, REFERRAL_BONUS
+  status      String   // PENDING, COMPLETED, FAILED
+  reference   String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  wallet      Wallet   @relation(fields: [walletId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  title         String
+  description   String   @db.Text
+  targetAmount  Float
+  currentAmount Float    @default(0)
+  unitAmount    Float
+  cycle         Int      // in months
+  returnPerCycle Float
+  status        String   @default("ACTIVE") // ACTIVE, FUNDED, COMPLETED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  investments   Investment[]
+}
+
+model Investment {
+  id          String   @id @default(cuid())
+  userId      String
+  productId   String
+  amount      Float
+  units       Int
+  status      String   // ACTIVE, COMPLETED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
