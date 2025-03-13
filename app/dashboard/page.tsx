@@ -10,7 +10,7 @@ export default function DashboardPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container mx-auto flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <ArrowLeft className="h-4 w-4" />
@@ -39,7 +39,7 @@ export default function DashboardPage() {
         </div>
       </header>
       <main className="flex-1 bg-muted/40">
-        <div className="container py-6">
+        <div className="container mx-auto py-6">
           <div className="mb-8">
             <h1 className="text-3xl font-bold tracking-tight">Investor Dashboard</h1>
             <p className="text-muted-foreground">Track your investments and monitor product development progress.</p>
