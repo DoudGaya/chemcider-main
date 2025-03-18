@@ -137,3 +137,17 @@ model Investment {
   product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
+
+model Contact {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String
+  company     String?
+  interest    String
+  message     String   @db.Text
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
