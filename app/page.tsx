@@ -14,9 +14,9 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { getLatestProducts } from "@/lib/products"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/auth"
+// import { getLatestProducts } from "@/lib/products"
+// import { getServerSession } from "next-auth"
+// import { authOptions } from "@/lib/auth"
 import ContactForm from "@/components/contact-form"
 
 export default async function Home() {
@@ -245,8 +245,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl gap-8 py-12 lg:grid-cols-3">
-              {
-              // @ts-ignore
+              {/* {
               latestProducts.map((product) => (
                 <Card key={product.id} className="flex flex-col">
                   <CardHeader>
@@ -287,7 +286,7 @@ export default async function Home() {
                     </Link>
                   </CardFooter>
                 </Card>
-              ))}
+              ))} */}
             </div>
             <div className="flex justify-center">
               <Link href="/products">
