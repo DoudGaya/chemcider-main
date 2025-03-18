@@ -20,8 +20,8 @@ import { authOptions } from "@/lib/auth"
 import ContactForm from "@/components/contact-form"
 
 export default async function Home() {
-  const session = await getServerSession(authOptions)
-  const latestProducts = await getLatestProducts()
+  // const session = await getServerSession(authOptions)
+  // const latestProducts = await getLatestProducts()
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -48,7 +48,7 @@ export default async function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            {session ? (
+            {/* {session ? (
               <Link href="/dashboard">
                 <Button variant="outline">Dashboard</Button>
               </Link>
@@ -61,7 +61,7 @@ export default async function Home() {
                   <Button>Sign Up</Button>
                 </Link>
               </>
-            )}
+            )} */}
           </div>
         </div>
       </header>
