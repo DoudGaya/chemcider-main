@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import banner from '@/public/chem-banner.jpg'
 import {
   ArrowRight,
   Beaker,
@@ -93,7 +94,7 @@ export default async function Home() {
                 </div>
               </div>
               <Image
-                src="/placeholder.svg?height=550&width=550"
+                src={banner}
                 width={550}
                 height={550}
                 alt="Laboratory equipment and researchers"
