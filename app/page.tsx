@@ -262,7 +262,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl gap-8 py-12 lg:grid-cols-3">
-              {/* {latestProducts.map((product) => (
+              {latestProducts.map((product) => (
                 <Card
                   key={product.id}
                   className="flex flex-col transform transition-all duration-200 hover:scale-105 hover:shadow-lg"
@@ -305,7 +305,7 @@ export default async function Home() {
                     </Link>
                   </CardFooter>
                 </Card>
-              ))} */}
+              ))}
             </div>
             <div className="flex justify-center">
               <Link href="/products">

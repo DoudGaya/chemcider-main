@@ -12,7 +12,7 @@ export const getLatestProducts = async (limit = 3) => {
       take: limit,
     })
 
-    return products
+    return products || []
   } catch (error) {
     console.error("Error fetching latest products:", error)
     return []

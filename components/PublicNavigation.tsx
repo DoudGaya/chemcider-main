@@ -10,7 +10,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
           <div className="flex items-center gap-2">
             {/* <DollarSign className="h-8 w-8 text-primary" /> */}
             <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
-              CHEMCIDER
+              ACMEGRID
             </span>
           </div>
           <nav className="hidden md:flex gap-6">
@@ -79,7 +79,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
   //       </Link>
   //     </div>
   //   </div>
-  
+
   // </header>
   )
 }
