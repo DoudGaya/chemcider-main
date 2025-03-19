@@ -3,7 +3,9 @@ import { prisma } from "@/lib/prisma"
 export const getLatestProducts = async (limit = 3) => {
   try {
     const products = await prisma.product.findMany({
-
+      where: {
+        status: "ACTIVE",
+      },
       orderBy: {
         createdAt: "desc",
       },

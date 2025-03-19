@@ -38,9 +38,6 @@ export default async function Home() {
   const session = await getServerSession(authOptions)
   const latestProducts = await getLatestProducts()
 
-
-  console.log(latestProducts)
-
   return (
     <div className="flex min-h-screen flex-col">
       {/* <DashboardHeader user={session?.user} /> */}

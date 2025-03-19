@@ -23,7 +23,6 @@ import DashboardHeader from "./_components/DashboardHeader"
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
-
   if (!session || !session.user.id) {
     redirect("/login")
   }
@@ -74,46 +73,9 @@ export default async function DashboardPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <DashboardHeader user={user} />
-      {/* <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              <span className="text-sm font-medium">Back to Home</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4">
-              <Button variant="outline" size="sm">
-                <Download className="mr-2 h-4 w-4" />
-                Export Data
-              </Button>
-              <div className="relative flex items-center gap-2">
-                <Image
-                  src={user?.image || "/placeholder.svg?height=32&width=32"}
-                  width={32}
-                  height={32}
-                  alt="User avatar"
-                  className="rounded-full"
-                />
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium">{user?.name || "User"}</span>
-                  <span className="text-xs text-muted-foreground">{user?.email}</span>
-                </div>
-               
-              </div>
-            </div>
-          </div>
-        </div>
-      </header> */}
-      <main className="flex-1 bg-muted/40">
-        <div className="container mx-auto py-6">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold tracking-tight">Investor Dashboard</h1>
-            <p className="text-muted-foreground">Track your investments and monitor product development progress.</p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <main className="flex-1">
+        <div className="container mx-auto px-6 py-6">
+          <div className="grid gap-6 md:grid-cols-2 grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Investment</CardTitle>
@@ -159,306 +121,8 @@ export default async function DashboardPage() {
               </CardContent>
             </Card>
           </div>
-        
-          {/* <div className="mt-8">
-            <Tabs defaultValue="active">
-              <div className="flex items-center justify-between">
-                <TabsList>
-                  <TabsTrigger value="active">Active Projects</TabsTrigger>
-                  <TabsTrigger value="completed">Completed Projects</TabsTrigger>
-                  <TabsTrigger value="upcoming">Upcoming Opportunities</TabsTrigger>
-                </TabsList>
-              </div>
-              <TabsContent value="active" className="mt-6">
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {investments
-                    .filter((investment) => investment.status === "ACTIVE")
-                    .map((investment) => (
-                      <Card key={investment.id}>
-                        <CardHeader className="pb-2">
-                          <CardTitle>{investment.product.title}</CardTitle>
-                          <CardDescription>
-                            Started: {new Date(investment.createdAt).toLocaleDateString()}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="space-y-4">
-                            <div className="space-y-2">
-                              <div className="flex items-center justify-between text-sm">
-                                <span>Development Progress</span>
-                                <span className="font-medium">
-                                  {Math.round(
-                                    (investment.product.currentAmount / investment.product.targetAmount) * 100,
-                                  )}
-                                  %
-                                </span>
-                              </div>
-                              <div className="h-2 w-full rounded-full bg-muted">
-                                <div
-                                  className="h-full rounded-full bg-gradient-to-r from-teal-500 to-blue-600"
-                                  style={{
-                                    width: `${Math.round((investment.product.currentAmount / investment.product.targetAmount) * 100)}%`,
-                                  }}
-                                ></div>
-                              </div>
-                            </div>
-                            <div className="pt-2">
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">Your Investment</span>
-                                <span>{formatCurrency(investment.amount)}</span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">Units</span>
-                                <span>{investment.units}</span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">Expected ROI</span>
-                                <span>{investment.product.returnPerCycle}%</span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">Cycle</span>
-                                <span>{investment.product.cycle} months</span>
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                        <CardFooter>
-                          <Button variant="outline" className="w-full">
-                            View Detailed Report
-                            <ArrowUpRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    ))}
-
-                  {investments.filter((investment) => investment.status === "ACTIVE").length === 0 && (
-                    <div className="col-span-full text-center py-8">
-                      <p className="text-muted-foreground">You don't have any active investments.</p>
-                      <Button asChild className="mt-4 bg-gradient-to-r from-teal-500 to-blue-600">
-                        <Link href="/products">Browse Investment Opportunities</Link>
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              </TabsContent>
-              <TabsContent value="completed" className="mt-6">
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {investments
-                    .filter((investment) => investment.status === "COMPLETED")
-                    .map((investment) => (
-                      <Card key={investment.id}>
-                        <CardHeader className="pb-2">
-                          <CardTitle>{investment.product.title}</CardTitle>
-                          <CardDescription>
-                            Completed: {new Date(investment.updatedAt).toLocaleDateString()}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="space-y-4">
-                            <div className="space-y-2">
-                              <div className="flex items-center justify-between text-sm">
-                                <span>Project Status</span>
-                                <span className="font-medium text-green-600">Completed</span>
-                              </div>
-                              <div className="h-2 w-full rounded-full bg-muted">
-                                <div className="h-full w-full rounded-full bg-green-500"></div>
-                              </div>
-                            </div>
-                            <div className="pt-2">
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">Initial Investment</span>
-                                <span>{formatCurrency(investment.amount)}</span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">Final Return</span>
-                                <span>
-                                  {formatCurrency(
-                                    investment.amount *
-                                      (1 + (investment.product.returnPerCycle / 100) * investment.product.cycle),
-                                  )}
-                                </span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="font-medium">ROI</span>
-                                <span className="text-green-600">
-                                  {investment.product.returnPerCycle * investment.product.cycle}%
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                        <CardFooter>
-                          <Button variant="outline" className="w-full">
-                            View Success Story
-                            <ArrowUpRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    ))}
-
-                  {investments.filter((investment) => investment.status === "COMPLETED").length === 0 && (
-                    <div className="col-span-full text-center py-8">
-                      <p className="text-muted-foreground">You don't have any completed investments yet.</p>
-                    </div>
-                  )}
-                </div>
-              </TabsContent>
-              <TabsContent value="upcoming" className="mt-6">
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle>Sustainable Textile Dyes</CardTitle>
-                      <CardDescription>Launching: Q3 2024</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span>Research Status</span>
-                            <span className="font-medium">90%</span>
-                          </div>
-                          <div className="h-2 w-full rounded-full bg-muted">
-                            <div className="h-full w-[90%] rounded-full bg-gradient-to-r from-teal-500 to-blue-600"></div>
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span>Funding Target</span>
-                            <span className="font-medium">$800,000</span>
-                          </div>
-                          <div className="h-2 w-full rounded-full bg-muted">
-                            <div className="h-full w-[10%] rounded-full bg-gradient-to-r from-teal-500 to-blue-600"></div>
-                          </div>
-                          <p className="text-xs text-muted-foreground">10% pre-funded • $80,000</p>
-                        </div>
-                        <div className="pt-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Minimum Investment</span>
-                            <span>$100,000</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Projected ROI</span>
-                            <span>20-25%</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Investment Window</span>
-                            <span>Opens Aug 2024</span>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button variant="outline" className="w-full">
-                        Request Prospectus
-                        <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                  <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle>Advanced Polymer Composites</CardTitle>
-                      <CardDescription>Launching: Q4 2024</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span>Research Status</span>
-                            <span className="font-medium">75%</span>
-                          </div>
-                          <div className="h-2 w-full rounded-full bg-muted">
-                            <div className="h-full w-[75%] rounded-full bg-gradient-to-r from-teal-500 to-blue-600"></div>
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span>Funding Target</span>
-                            <span className="font-medium">$1,200,000</span>
-                          </div>
-                          <div className="h-2 w-full rounded-full bg-muted">
-                            <div className="h-full w-[5%] rounded-full bg-gradient-to-r from-teal-500 to-blue-600"></div>
-                          </div>
-                          <p className="text-xs text-muted-foreground">5% pre-funded • $60,000</p>
-                        </div>
-                        <div className="pt-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Minimum Investment</span>
-                            <span>$150,000</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Projected ROI</span>
-                            <span>18-22%</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Investment Window</span>
-                            <span>Opens Oct 2024</span>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button variant="outline" className="w-full">
-                        Request Prospectus
-                        <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                  <Card>
-                    <CardHeader className="pb-2">
-                      <CardTitle>Biodegradable Plastics</CardTitle>
-                      <CardDescription>Launching: Q1 2025</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span>Research Status</span>
-                            <span className="font-medium">60%</span>
-                          </div>
-                          <div className="h-2 w-full rounded-full bg-muted">
-                            <div className="h-full w-[60%] rounded-full bg-gradient-to-r from-teal-500 to-blue-600"></div>
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span>Funding Target</span>
-                            <span className="font-medium">$950,000</span>
-                          </div>
-                          <div className="h-2 w-full rounded-full bg-muted">
-                            <div className="h-full w-[2%] rounded-full bg-gradient-to-r from-teal-500 to-blue-600"></div>
-                          </div>
-                          <p className="text-xs text-muted-foreground">2% pre-funded • $19,000</p>
-                        </div>
-                        <div className="pt-2">
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Minimum Investment</span>
-                            <span>$75,000</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Projected ROI</span>
-                            <span>22-28%</span>
-                          </div>
-                          <div className="flex items-center justify-between text-sm">
-                            <span className="font-medium">Investment Window</span>
-                            <span>Opens Jan 2025</span>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button variant="outline" className="w-full">
-                        Request Prospectus
-                        <ArrowUpRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </div> */}
         </div>
-      </main>
-      <div className="mt-8 container mx-auto">
+        <div className="container px-6 mx-auto">
           <div>
             <UserReferralSection
             // @ts-ignore
@@ -470,7 +134,9 @@ export default async function DashboardPage() {
             />
           </div>
         </div>
-      <footer className="w-full border-t bg-background">
+      </main>
+      
+      {/* <footer className="w-full border-t bg-background">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 py-6 md:h-16 md:flex-row md:py-0">
           <p className="text-center text-sm text-muted-foreground md:text-left">
             &copy; {new Date().getFullYear()} Chemcider. All rights reserved.
@@ -484,7 +150,7 @@ export default async function DashboardPage() {
             </Link>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }

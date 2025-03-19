@@ -37,8 +37,7 @@ export const getInvestmentById = async (id: string) => {
 
 export const createInvestment = async (userId: string, productId: string, units: number) => {
   try {
-    // Start a transaction
-    // @ts-ignore
+
     return await prisma.$transaction(async (tx) => {
       // Get product details
       const product = await tx.product.findUnique({
@@ -128,7 +127,6 @@ export const createInvestment = async (userId: string, productId: string, units:
 
 
 // "use server"
-
 // import { revalidatePath } from "next/cache"
 // import { getServerSession } from "next-auth"
 // import { authOptions } from "@/lib/auth"

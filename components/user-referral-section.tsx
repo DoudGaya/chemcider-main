@@ -121,7 +121,7 @@ export function UserReferralSection({
 
         <div className="rounded-lg bg-muted p-4 text-sm">
           <p className="font-medium mb-2">How it works:</p>
-          <ol className="list-decimal pl-5 space-y-1">
+          <ol className=" list-disc grid grid-cols-2 pl-5 space-y-1">
             <li>Share your unique referral link with friends</li>
             <li>They sign up and make an investment</li>
             <li>You earn $10 for each successful referral</li>
