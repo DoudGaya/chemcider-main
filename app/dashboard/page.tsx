@@ -1,6 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowUpRight, Download, LineChart, LogOut, PieChart, TrendingUp, Users } from "lucide-react"
+import { UserReferralSection } from "@/components/user-referral-section"
+
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,6 +19,7 @@ import { BarChart, Pie } from "recharts"
 
 
 import type { ChartDataPoint, InvestmentWithProduct, Wallet } from "@/types"
+import DashboardHeader from "./_components/DashboardHeader"
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
@@ -71,7 +74,8 @@ export default async function DashboardPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <DashboardHeader user={user} />
+      {/* <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
@@ -102,7 +106,7 @@ export default async function DashboardPage() {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
       <main className="flex-1 bg-muted/40">
         <div className="container mx-auto py-6">
           <div className="mb-8">
@@ -155,58 +159,8 @@ export default async function DashboardPage() {
               </CardContent>
             </Card>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-7">
-            <Card className="lg:col-span-4">
-              <CardHeader>
-                <CardTitle>Investment Performance</CardTitle>
-                <CardDescription>Monthly returns across all projects</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="h-[300px]">
-                  {/* <LineChart
-                  // @ts-ignore
-                    data={monthlyReturnsData}
-                    index="name"
-                    categories={["value"]}
-                    colors={["#0ea5e9"]}
-                    // @ts-ignore
-                    valueFormatter={(value) => `$${value.toLocaleString()}`}
-                    showLegend={false}
-                    showXAxis
-                    showYAxis
-                    showGridLines
-                  /> */}
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="lg:col-span-3">
-              <CardHeader>
-                <CardTitle>Project Allocation</CardTitle>
-                <CardDescription>Current investment distribution</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="h-[300px]">
-                  {/* {allocationData.length > 0 ? (
-                    <Pie
-                    // @ts-ignore
-                      data={allocationData}
-                      // @ts-ignore
-                      index="name"
-                      // @ts-ignore
-                      valueFormatter={(value) => `$${value.toLocaleString()}`}
-                      category="value"
-                      colors={["#0ea5e9", "#14b8a6", "#6366f1", "#8b5cf6", "#ec4899"]}
-                    />
-                  ) : (
-                    <div className="flex h-full items-center justify-center">
-                      <p className="text-sm text-muted-foreground">No investment data available</p>
-                    </div>
-                  )} */}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="mt-8">
+        
+          {/* <div className="mt-8">
             <Tabs defaultValue="active">
               <div className="flex items-center justify-between">
                 <TabsList>
@@ -501,9 +455,21 @@ export default async function DashboardPage() {
                 </div>
               </TabsContent>
             </Tabs>
-          </div>
+          </div> */}
         </div>
       </main>
+      <div className="mt-8 container mx-auto">
+          <div>
+            <UserReferralSection
+            // @ts-ignore
+              referralCode={user.referralCode}
+              // @ts-ignore
+              referralCount={user.referrals?.length || 0}
+              referralBalance={wallet?.referralBalance || 0}
+              hasReferralBonus={(wallet?.referralBalance || 0) > 0}
+            />
+          </div>
+        </div>
       <footer className="w-full border-t bg-background">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 py-6 md:h-16 md:flex-row md:py-0">
           <p className="text-center text-sm text-muted-foreground md:text-left">

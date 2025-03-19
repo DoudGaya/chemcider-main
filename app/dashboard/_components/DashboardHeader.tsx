@@ -24,15 +24,11 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                </Link>
              </div>
              <div className="flex items-center gap-4">
-               <Button variant="outline" size="sm">
-                 <Download className="mr-2 h-4 w-4" />
-                 Export Data
-               </Button>
+              
                <div className="relative">
-
                  <Popover>
                   <PopoverTrigger>
-                      <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                      <div className="flex items-center gap-2">
                       <Image
                         src={user?.image || "/placeholder.svg?height=32&width=32"}
                         width={32}
@@ -42,7 +38,7 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                       />
                       <span>{user?.name || "User"}</span>
                       <ChevronDown className="h-4 w-4" />
-                    </Button>
+                    </div>
                   </PopoverTrigger>
                   <PopoverContent>
 

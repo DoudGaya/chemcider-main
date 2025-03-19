@@ -20,7 +20,6 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import banner from '@/public/banner-rem.png'
 import ContactForm from "@/components/contact-form"
-import DashboardHeader from "./dashboard/_components/DashboardHeader"
 import PublicNavigation from "@/components/PublicNavigation"
 
 export const metadata = {
@@ -38,6 +37,9 @@ export const metadata = {
 export default async function Home() {
   const session = await getServerSession(authOptions)
   const latestProducts = await getLatestProducts()
+
+
+  console.log(latestProducts)
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -262,7 +264,9 @@ export default async function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl gap-8 py-12 lg:grid-cols-3">
-              {latestProducts.map((product) => (
+              { latestProducts &&  latestProducts.map((product) => (
+
+              
                 <Card
                   key={product.id}
                   className="flex flex-col transform transition-all duration-200 hover:scale-105 hover:shadow-lg"

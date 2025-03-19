@@ -89,7 +89,6 @@ model Wallet {
   referralBalance Float @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   transactions Transaction[]
 }
@@ -104,7 +103,6 @@ model Transaction {
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   wallet      Wallet   @relation(fields: [walletId], references: [id], onDelete: Cascade)
 }
 
@@ -115,12 +113,12 @@ model Product {
   targetAmount  Float
   currentAmount Float    @default(0)
   unitAmount    Float
+  duration      Int      // in months
   cycle         Int      // in months
   returnPerCycle Float
   status        String   @default("ACTIVE") // ACTIVE, FUNDED, COMPLETED
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-
   investments   Investment[]
 }
 
@@ -130,12 +128,17 @@ model Investment {
   productId   String   @db.ObjectId
   amount      Float
   units       Int
-  status      String   // ACTIVE, COMPLETED
+  status      InvestmentStatus   // ACTIVE, COMPLETED
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+
+enum InvestmentStatus {
+  ACTIVE
+  COMPLETED
 }
 
 model Contact {
@@ -150,5 +153,3 @@ model Contact {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
-
-
