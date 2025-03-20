@@ -13,7 +13,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { register } from "@/actions/auth"
-import { toast } from "@/components/ui/use-toast"
+// import { toast } from "@/components/ui/use-toast"
+import { toast } from "sonner"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -49,25 +50,31 @@ export default function RegisterPage() {
       const result = await register(values, referralCode)
 
       if (result.error) {
-        toast({
-          title: "Registration failed",
+        toast("Registration failed", {
           description: result.error,
-          variant: "destructive",
+          style: {
+            border: "#ff675f",
+            color: "#000000",
+            borderWidth: "2px",
+            borderStyle: "solid",
+            backgroundColor: "#ff675f",
+          }
         })
         return
       }
 
-      toast({
-        title: "Registration successful",
+      toast("Registration successful", {
         description: "Please check your email to verify your account.",
+        style: {
+          backgroundColor: "#82fd82",
+          color: "#000000",
+        }
       })
 
       router.push("/login")
     } catch (error) {
-      toast({
-        title: "Something went wrong",
+      toast("Something went wrong", {
         description: "Please try again later.",
-        variant: "destructive",
       })
     } finally {
       setIsPending(false)
@@ -75,7 +82,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-teal-50 to-white p-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#82fd82] bg-gradient-to-br from-blue-50 via-teal-50 to-white p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-2">

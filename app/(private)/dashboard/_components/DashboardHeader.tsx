@@ -3,6 +3,7 @@ import React from 'react'
 import Image from "next/image"
 import { ArrowLeft, ArrowUpRight, ChevronDown, Download, LineChart, LogOut } from "lucide-react"
 // import { Button, Link } from "@/components/ui"
+import logo from '@/public/logo.png'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
@@ -20,11 +21,13 @@ const DashboardHeader = ( {user}: {user: any} ) => {
              <div className="flex items-center gap-2">
                <Link href="/" className="flex items-center gap-2">
                  {/* <ArrowLeft className="h-4 w-4" /> */}
-                 <span className="text-sm font-medium">ACMEGRID</span>
+                 {/* <span className="text-sm font-medium">ACMEGRID</span> */}
+                 <Image src={logo} alt="logo" width={40} className=' h-10 object-contain w-full' height={40} />
                </Link>
              </div>
              <div className="flex items-center gap-4">
                <div className="relative">
+                hhelow
                  <Popover>
                   <PopoverTrigger>
                       <div className="md:flex hidden items-center gap-2">
@@ -44,7 +47,6 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                     </div>
                   </PopoverTrigger>
                   <PopoverContent>
-
                   <form action="/api/auth/signout" method="POST">
                       <Button
                         type="submit"
@@ -58,8 +60,6 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                       </form>
                   </PopoverContent>
                 </Popover>
-
-               
                </div>
              </div>
            </div>

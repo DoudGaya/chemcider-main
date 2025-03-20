@@ -1,6 +1,7 @@
 import React from 'react'
 import { FlaskConical, MenuIcon } from 'lucide-react'
 import { Button } from './ui/button'
+import logo from '@/public/logo.png'
 import Link from 'next/link'
 import {
   Sheet,
@@ -10,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import Image from 'next/image'
 
 
 const navItems = [
@@ -26,19 +28,10 @@ const PublicNavigation = ({ session }: {session: any}) => {
         <div className="container px-8 mx-auto flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
-              ACMEGRID
+              <Image src={logo} alt="logo" width={40} className=' h-10 object-contain w-full' height={40} />
             </span>
           </div>
-          <nav className="hidden md:flex gap-6">
-            {
-              navItems.map((item) => (
-                <Link key={item.name} href={item.href} className="text-sm font-medium hover:text-primary">
-                  {item.name}
-                </Link>
-              ))
-            }
-          
-          </nav>
+        
           <div className =" md:hidden">
           <Sheet >
             <SheetTrigger>
@@ -88,6 +81,16 @@ const PublicNavigation = ({ session }: {session: any}) => {
           </div>
 
           <div className=" hidden md:flex items-center gap-4">
+          <nav className="hidden md:flex gap-6">
+            {
+              navItems.map((item) => (
+                <Link key={item.name} href={item.href} className="text-sm font-medium hover:text-primary">
+                  {item.name}
+                </Link>
+              ))
+            }
+          
+          </nav>
             {session ? (
               <Link href="/dashboard">
                 <Button variant="outline">Dashboard</Button>

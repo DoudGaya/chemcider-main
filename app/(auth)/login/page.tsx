@@ -6,14 +6,16 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { FlaskRoundIcon as Flask } from "lucide-react"
+import { FlaskRoundIcon as Flask, KeyRound } from "lucide-react"
 import { signIn } from "next-auth/react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { toast } from "@/components/ui/use-toast"
+// import { toast } from "@/components/ui/use-toast"
+import { toast } from "sonner"
+
 
 const formSchema = z.object({
   email: z.string().email({
@@ -54,8 +56,7 @@ export default function LoginPage() {
 
       if (result?.error === "2FA_REQUIRED") {
         setShowTwoFactor(true)
-        toast({
-          title: "Two-factor authentication required",
+        toast("Two-factor authentication required", {
           description: "Please check your email for the verification code.",
         })
         setIsPending(false)
@@ -64,16 +65,14 @@ export default function LoginPage() {
 
       if (result?.error) {
         if (result.error === "Email not verified") {
-          toast({
-            title: "Email not verified",
+          toast( "Email not verified", {
             description: "Please check your email to verify your account.",
-            variant: "destructive",
+            icon: <KeyRound />,
           })
         } else {
-          toast({
-            title: "Login failed",
+          toast("Login failed", {
             description: "Invalid email or password.",
-            variant: "destructive",
+            icon: "error",
           })
         }
         setIsPending(false)
@@ -83,12 +82,11 @@ export default function LoginPage() {
       router.push(callbackUrl)
       router.refresh()
     } catch (error) {
-      toast({
-        title: "Something went wrong",
+      toast("Something went wrong", {
         description: "Please try again later.",
-        variant: "destructive",
+        icon: "error",
       })
-    } finally {
+    } finally { 
       setIsPending(false)
     }
   }
@@ -113,7 +111,7 @@ export default function LoginPage() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="john.doe@example.com" {...field} />
+                      <Input type="email" placeholder="doud@acmegrid.com.ng" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

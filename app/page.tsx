@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import stock from '@/public/banner.jpg'
 import {
   ArrowRight,
   BarChart3,
@@ -23,12 +24,12 @@ import ContactForm from "@/components/contact-form"
 import PublicNavigation from "@/components/PublicNavigation"
 
 export const metadata = {
-  title: "Chemcider | Modern Commodity Investment Platform",
+  title: "Acmegrid | Modern Commodity Investment Platform",
   description:
-    "Chemcider is a cutting-edge platform connecting investors with high-yield commodity opportunities across global markets. Start investing today.",
+    "Acmegrid is a cutting-edge platform connecting investors with high-yield commodity opportunities across global markets. Start investing today.",
   keywords: "commodity investment, high yield investments, global commodities, investment platform, passive income",
   openGraph: {
-    title: "Chemcider | Modern Commodity Investment Platform",
+    title: "Acmegrid | Modern Commodity Investment Platform",
     description: "Connect with high-yield commodity opportunities across global markets. Start investing today.",
     images: [{ url: "/og-image.jpg" }],
   },
@@ -43,28 +44,28 @@ export default async function Home() {
       {/* <DashboardHeader user={session?.user} /> */}
       <PublicNavigation session={session} />
       <main className="flex-1">
-        <section className="w-full py-16 bg-gradient-to-br from-green-50 via-lime-50 to-white">
+        <section className="w-full py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none text-yellow-500 bg-clip-text">
                     The Future of Commodity Investment
                   </h1>
                   <p className="max-w-[600px] text-gray-800 md:text-xl">
-                    Chemcider connects investors with high-yield commodity opportunities across global markets. Start
+                    Acmegrid connects investors with high-yield commodity opportunities across global markets. Start
                     building your portfolio today.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/register">
-                    <Button size="lg" className="bg-gradient-to-r from-green-600 to-lime-600">
+                    <Button size="lg" className=" text-black bg-yellow-500 ">
                       Start Investing
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/products">
-                    <Button size="lg" variant="outline">
+                    <Button size="lg" variant="outline" className=" border-yellow-500">
                       Explore Opportunities
                     </Button>
                   </Link>
@@ -81,8 +82,8 @@ export default async function Home() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute -top-4 -left-4 h-72 w-72 rounded-full bg-green-100 blur-3xl opacity-70"></div>
-                <div className="absolute -bottom-4 -right-4 h-72 w-72 rounded-full bg-emerald-100 blur-3xl opacity-70"></div>
+                <div className="absolute -top-4 -left-4 h-72 w-72 rounded-full bg-yellow-100 blur-3xl opacity-70"></div>
+                <div className="absolute -bottom-4 -right-4 h-72 w-72 rounded-full bg-green-100 blur-3xl opacity-70"></div>
                 <Image
                   src={banner}
                   width={550}
@@ -99,7 +100,7 @@ export default async function Home() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-gradient-to-r from-blue-100 to-violet-100 px-3 py-1 text-sm">
+                <div className="inline-block rounded-lg bg-gradient-to-r from-yellow-100 to-yeloow-100 px-3 py-1 text-sm">
                   How It Works
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Simplified Commodity Investment</h2>
@@ -111,7 +112,7 @@ export default async function Home() {
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-3">
               <Card className="transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                     <Search className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle>Discover Opportunities</CardTitle>
@@ -131,7 +132,7 @@ export default async function Home() {
               </Card>
               <Card className="transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                     <DollarSign className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle>Invest Securely</CardTitle>
@@ -151,7 +152,7 @@ export default async function Home() {
               </Card>
               <Card className="transform transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                     <LineChart className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle>Track & Earn</CardTitle>
@@ -173,19 +174,19 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 bg-gradient-to-br from-blue-50 via-violet-50 to-white">
+        <section className="w-full py-12 md:py-24 bg-gradient-to-br from-yellow-50 via-yellow-50 to-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-center">
               <div>
                 <div className="space-y-4">
-                  <div className="inline-block rounded-lg bg-gradient-to-r from-blue-100 to-violet-100 px-3 py-1 text-sm">
+                  <div className="inline-block rounded-lg bg-gradient-to-r from-yellow-100 to-yellow-100 px-3 py-1 text-sm">
                     For Business Owners
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  <h2 className="text-3xl text-yellow-600 font-bold tracking-tighter sm:text-4xl md:text-5xl">
                     Raise Capital for Your Commodity Business
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                    Partner with Chemcider to access our network of qualified investors looking for opportunities in the
+                    Partner with Acmegrid to access our network of qualified investors looking for opportunities in the
                     commodity sector.
                   </p>
                 </div>
@@ -226,7 +227,7 @@ export default async function Home() {
                 </div>
                 <div className="mt-8">
                   <Link href="#contact">
-                    <Button className="bg-gradient-to-r from-blue-600 to-violet-600">
+                    <Button className="bg-gradient-to-r from-yellow-600 to-yellow-600">
                       Partner With Us
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -234,9 +235,9 @@ export default async function Home() {
                 </div>
               </div>
               <div className="relative">
-                <div className="absolute -top-4 -right-4 h-72 w-72 rounded-full bg-blue-100 blur-3xl opacity-70"></div>
+                <div className="absolute -top-4 -right-4 h-72 w-72 rounded-full bg-yellow-100 blur-3xl opacity-70"></div>
                 <Image
-                  src="/placeholder.svg?height=550&width=550"
+                  src={stock}
                   width={550}
                   height={550}
                   alt="Business owners reviewing commodity investment opportunities"
@@ -251,7 +252,7 @@ export default async function Home() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-gradient-to-r from-blue-100 to-violet-100 px-3 py-1 text-sm">
+                <div className="inline-block rounded-lg bg-gradient-to-r from-yellow-100 to-yellow-100 px-3 py-1 text-sm">
                   Investment Opportunities
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Featured Commodities</h2>
@@ -286,7 +287,7 @@ export default async function Home() {
                         </div>
                         <div className="h-2 w-full rounded-full bg-muted">
                           <div
-                            className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-600"
+                            className="h-full rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600"
                             style={{ width: `${Math.round((product.currentAmount / product.targetAmount) * 100)}%` }}
                           ></div>
                         </div>
@@ -302,7 +303,7 @@ export default async function Home() {
                   </CardContent>
                   <CardFooter>
                     <Link href={`/products/${product.id}`} className="w-full">
-                      <Button className="w-full bg-gradient-to-r from-blue-600 to-violet-600">View Details</Button>
+                      <Button className="w-full bg-gradient-to-r from-yellow-600 to-yellow-600">View Details</Button>
                     </Link>
                   </CardFooter>
                 </Card>
@@ -319,14 +320,14 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 bg-gradient-to-br from-blue-50 via-violet-50 to-white">
+        <section className="w-full py-12 md:py-24 bg-gradient-to-br from-yellow-50 via-yellow-50 to-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-gradient-to-r from-blue-100 to-violet-100 px-3 py-1 text-sm">
-                  Why Choose Chemcider
+                <div className="inline-block rounded-lg bg-gradient-to-r from-yellow-100 to-yellow-100 px-3 py-1 text-sm">
+                  Why Choose Acmegrid
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The Chemcider Advantage</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">The Acmegrid Advantage</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Our platform offers unique benefits for commodity investors
                 </p>
@@ -334,7 +335,7 @@ export default async function Home() {
             </div>
             <div className="mx-auto grid max-w-5xl gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                   <Globe className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold">Global Access</h3>
@@ -343,7 +344,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                   <BarChart3 className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold">Advanced Analytics</h3>
@@ -352,7 +353,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                   <PieChart className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold">Diversification</h3>
@@ -361,7 +362,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-blue-100 to-violet-100">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-100 to-yellow-100">
                   <Users className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold">Expert Support</h3>
@@ -372,7 +373,7 @@ export default async function Home() {
             </div>
             <div className="flex justify-center">
               <div className="relative rounded-xl overflow-hidden max-w-4xl w-full">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-violet-600/20 backdrop-blur-sm"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 to-yellow-600/20 backdrop-blur-sm"></div>
                 <div className="relative p-8 md:p-12 text-center">
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to start your investment journey?</h3>
                   <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
@@ -380,7 +381,7 @@ export default async function Home() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/register">
-                      <Button size="lg" className="bg-gradient-to-r from-blue-600 to-violet-600">
+                      <Button size="lg" className=" ">
                         Create Account
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -402,7 +403,7 @@ export default async function Home() {
             <div className="grid gap-10 md:grid-cols-2 md:gap-16">
               <div>
                 <div className="space-y-4">
-                  <div className="inline-block rounded-lg bg-gradient-to-r from-blue-100 to-violet-100 px-3 py-1 text-sm">
+                  <div className="inline-block rounded-lg bg-gradient-to-r from-yellow-100 to-orange-100 px-3 py-1 text-sm">
                     Get in Touch
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -431,7 +432,7 @@ export default async function Home() {
                     </div>
                     <div>
                       <h3 className="font-medium">Email</h3>
-                      <p className="text-sm text-muted-foreground">info@Chemcider.com</p>
+                      <p className="text-sm text-muted-foreground">info@acmegrid.com.ng</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -440,7 +441,7 @@ export default async function Home() {
                     </div>
                     <div>
                       <h3 className="font-medium">Phone</h3>
-                      <p className="text-sm text-muted-foreground">+234 (0) 800 Chemcider</p>
+                      <p className="text-sm text-muted-foreground">+234 (0) 800 Acmegrid</p>
                     </div>
                   </div>
                 </div>
@@ -451,7 +452,7 @@ export default async function Home() {
                     </div>
                     <div>
                       <h4 className="text-sm font-medium">Investor Support</h4>
-                      <p className="text-xs text-muted-foreground">investors@Chemcider.com</p>
+                      <p className="text-xs text-muted-foreground">investors@Acmegrid.com.ng</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 rounded-lg border bg-background p-4">
@@ -460,7 +461,7 @@ export default async function Home() {
                     </div>
                     <div>
                       <h4 className="text-sm font-medium">Business Partnerships</h4>
-                      <p className="text-xs text-muted-foreground">partners@Chemcider.com</p>
+                      <p className="text-xs text-muted-foreground">partners@Acmegrid.com.ng</p>
                     </div>
                   </div>
                 </div>
@@ -474,12 +475,12 @@ export default async function Home() {
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
           <div className="flex items-center gap-2">
             <DollarSign className="h-6 w-6 text-primary" />
-            <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-              Chemcider
+            <span className="text-lg font-bold bg-gradient-to-r from-yellow-600 to-yellow-600 bg-clip-text text-transparent">
+              Acmegrid
             </span>
           </div>
           <p className="text-center text-sm text-muted-foreground md:text-left">
-            &copy; {new Date().getFullYear()} Chemcider. All rights reserved.
+            &copy; {new Date().getFullYear()} Acmegrid. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Link href="#" className="text-sm text-muted-foreground hover:text-primary">

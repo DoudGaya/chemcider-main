@@ -24,10 +24,7 @@ export default async function RootLayout({
 
     const user = await getUserById(session.user.id);
   return (
-    <html lang="en">
-      <body
-        className={` antialiased`}
-      >
+
         <div className=" flex ">
           <div className=" w-[300px] hidden md:flex h-screen">
             Hello 
@@ -37,7 +34,5 @@ export default async function RootLayout({
           {children}
         </div>
         </div>
-      </body>
-    </html>
   );
 }
