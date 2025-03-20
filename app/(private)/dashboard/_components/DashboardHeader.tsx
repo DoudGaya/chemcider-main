@@ -1,11 +1,18 @@
 'use client'
 import React from 'react'
 import Image from "next/image"
-import { ArrowLeft, ArrowUpRight, ChevronDown, Download, LineChart, LogOut } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, ChevronDown, Download, LineChart, LogOut, MenuIcon } from "lucide-react"
 // import { Button, Link } from "@/components/ui"
 import logo from '@/public/logo.png'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 import {
   Popover,
@@ -20,14 +27,45 @@ const DashboardHeader = ( {user}: {user: any} ) => {
            <div className="container px-8 mx-auto flex h-16 items-center justify-between">
              <div className="flex items-center gap-2">
                <Link href="/" className="flex items-center gap-2">
-                 {/* <ArrowLeft className="h-4 w-4" /> */}
-                 {/* <span className="text-sm font-medium">ACMEGRID</span> */}
                  <Image src={logo} alt="logo" width={40} className=' h-10 object-contain w-full' height={40} />
                </Link>
              </div>
              <div className="flex items-center gap-4">
-               <div className="relative">
-                hhelow
+               <div className="relative h-full items-center flex">
+                <div className=" flex items-center h-full my-auto">
+                    <Sheet >
+            <SheetTrigger>
+                   <MenuIcon className="h-8 w-8 text-primary" />
+            </SheetTrigger>
+            <SheetContent className=' h-full' side='left'>
+              <SheetHeader>
+                <SheetTitle className=' py-2 border-green-500 border-b'> 
+                 <div className="">
+                  <Link href="/" className="text-lg flex items-start font-medium hover:text-primary"
+                  >
+                     <Image src={logo} alt="logo" width={40} className=' h-10 object-left object-contain w-full' height={40} />
+                  </Link>
+                  
+                 </div>
+                </SheetTitle>
+                <div className=" flex flex-col h-full py-4 gap-4">
+                <form action="/api/auth/signout" method="POST">
+                      <Button
+                        type="submit"
+                        variant="ghost"
+                        size="sm"
+                        className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                      >
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Sign Out
+                      </Button>
+                      </form>
+                
+                </div>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+                </div>
                  <Popover>
                   <PopoverTrigger>
                       <div className="md:flex hidden items-center gap-2">

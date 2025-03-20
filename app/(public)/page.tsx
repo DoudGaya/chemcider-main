@@ -36,13 +36,11 @@ export const metadata = {
 }
 
 export default async function Home() {
-  const session = await getServerSession(authOptions)
   const latestProducts = await getLatestProducts()
 
   return (
     <div className="flex min-h-screen flex-col">
       {/* <DashboardHeader user={session?.user} /> */}
-      <PublicNavigation session={session} />
       <main className="flex-1">
         <section className="w-full py-16">
           <div className="container mx-auto px-4 md:px-6">

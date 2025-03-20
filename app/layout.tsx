@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -13,21 +14,24 @@ import "./globals.css";
 // });
 
 export const metadata: Metadata = {
-  title: "Chemcider Inc.",
-  description: "Nigerian based chemical company, and Producer of the best quality products in the country.",
+  title: "Acmegrid Inc.",
+  description: "Nigerian commodity Investment Company.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={` antialiased`}
       >
+       <div className="">
         {children}
+       </div>
       </body>
     </html>
   );

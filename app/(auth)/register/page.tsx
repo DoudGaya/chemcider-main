@@ -82,11 +82,11 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#82fd82] bg-gradient-to-br from-blue-50 via-teal-50 to-white p-4">
+    <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-2">
-            <Flask className="h-10 w-10 text-primary" />
+            {/* <Flask className="h-10 w-10 text-primary" /> */}
           </div>
           <CardTitle className="text-2xl text-center">Create an account</CardTitle>
           <CardDescription className="text-center">Enter your information to create an account</CardDescription>
@@ -138,7 +138,7 @@ export default function RegisterPage() {
                   You were referred by a friend (Code: {referralCode})
                 </div>
               )}
-              <Button type="submit" className="w-full bg-gradient-to-r from-teal-500 to-blue-600" disabled={isPending}>
+              <Button type="submit" className="w-full bg-yellow-500" disabled={isPending}>
                 {isPending ? "Creating account..." : "Create account"}
               </Button>
             </form>

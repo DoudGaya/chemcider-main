@@ -92,7 +92,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-teal-50 to-white p-4">
+    <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-2">
@@ -150,7 +150,7 @@ export default function LoginPage() {
                   )}
                 />
               )}
-              <Button type="submit" className="w-full bg-gradient-to-r from-teal-500 to-blue-600" disabled={isPending}>
+              <Button type="submit" className="w-full bg-yellow-500" disabled={isPending}>
                 {isPending ? "Signing in..." : "Sign in"}
               </Button>
             </form>

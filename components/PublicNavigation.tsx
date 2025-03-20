@@ -6,7 +6,6 @@ import Link from 'next/link'
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -41,9 +40,9 @@ const PublicNavigation = ({ session }: {session: any}) => {
               <SheetHeader>
                 <SheetTitle className=' py-2 border-green-500 border-b'> 
                  <div className="">
-                  <Link href="/" className="text-lg font-medium hover:text-primary"
+                  <Link href="/" className="text-lg flex items-start font-medium hover:text-primary"
                   >
-                     ACMEGRID
+                     <Image src={logo} alt="logo" width={40} className=' h-10 object-left object-contain w-full' height={40} />
                   </Link>
                   
                  </div>
@@ -65,7 +64,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
                           </Link>
                         ) : (
                           <>
-                            <Link href="/login" className="text-sm font-medium hover:text-primary">
+                            <Link href="/login" className=" font-medium hover:text-primary">
                               Login
                             </Link>
                             <Link href="/register">

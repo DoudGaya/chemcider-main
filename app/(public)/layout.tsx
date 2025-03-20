@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner"
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import PublicNavigation from "@/components/PublicNavigation";
 
 
 
@@ -14,8 +17,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
+
+
+  const session = await getServerSession(authOptions)
+
   return (
         <div className="">
+                  <PublicNavigation session={session} />
             {children}
             <Toaster />
         </div>
