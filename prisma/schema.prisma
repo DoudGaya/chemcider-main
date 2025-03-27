@@ -37,8 +37,6 @@ model User {
   isTwoFactorEnabled    Boolean   @default(false)
   createdAt             DateTime  @default(now())
   updatedAt             DateTime  @updatedAt
-
-  // Relations
   wallet                Wallet?
   investments           Investment[]
   verifications         Verification[]

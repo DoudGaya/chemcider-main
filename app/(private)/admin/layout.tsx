@@ -8,6 +8,8 @@ import { usePathname } from "next/navigation"
 import { BarChart3, Package, Users, Wallet, Settings, LogOut, Menu, X, DollarSign, TrendingUp } from "lucide-react"
 import { useAdminStore } from "@/lib/store"
 import { Button } from "@/components/ui/button"
+import logo from '@/public/logo.png'
+import Image from "next/image"
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -64,9 +66,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
             <div className="flex flex-shrink-0 items-center px-4">
-              <DollarSign className="h-8 w-8 text-primary" />
+              {/* <DollarSign className="h-8 w-8 text-primary" /> */}
               <span className="ml-2 text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-                Commodex Admin
+                <Image src={logo} alt="logo" width={50} height={50} />
               </span>
             </div>
             <nav className="mt-5 space-y-1 px-2">
@@ -110,9 +112,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white">
           <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
             <div className="flex flex-shrink-0 items-center px-4">
-              <DollarSign className="h-8 w-8 text-primary" />
+              {/* <DollarSign className="h-8 w-8 text-primary" /> */}
               <span className="ml-2 text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-                Commodex Admin
+                <Image src={logo} alt="logo" width={50} className=" h-full w-full  object-contain" height={50} />
               </span>
             </div>
             <nav className="mt-5 flex-1 space-y-1 bg-white px-2">

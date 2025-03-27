@@ -123,7 +123,7 @@ export default async function AdminDashboard() {
       <div className="flex flex-col space-y-4">
         <h1 className="text-2xl font-bold tracking-tight">Admin Dashboard</h1>
         <p className="text-muted-foreground">
-          Welcome to the Commodex admin dashboard. Here you can manage products, investments, users, and more.
+          Welcome to the Acmegrid admin dashboard. Here you can manage products, investments, users, and more.
         </p>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

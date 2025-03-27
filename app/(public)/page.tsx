@@ -138,7 +138,7 @@ export default async function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Invest with as little as $1,000 per unit. Our secure platform handles all transactions, contracts,
+                    Invest with as little as ₦1,000 per unit. Our secure platform handles all transactions, contracts,
                     and documentation with bank-level security and compliance.
                   </p>
                 </CardContent>
@@ -290,12 +290,12 @@ export default async function Home() {
                           ></div>
                         </div>
                         <p className="text-xs text-muted-foreground">
-                          ${product.currentAmount.toLocaleString()} raised of ${product.targetAmount.toLocaleString()}
+                          ₦{product.currentAmount.toLocaleString()} raised of ₦{product.targetAmount.toLocaleString()}
                         </p>
                       </div>
                       <div className="flex items-center justify-between text-sm">
                         <span className="font-medium">Unit Investment</span>
-                        <span>${product.unitAmount.toLocaleString()}</span>
+                        <span>₦{product.unitAmount.toLocaleString()}</span>
                       </div>
                     </div>
                   </CardContent>

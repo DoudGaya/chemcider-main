@@ -14,10 +14,10 @@ import Image from 'next/image'
 
 
 const navItems = [
-  { name: "Products", href: "/products" },
+  { name: "Oppotunities", href: "/products" },
   { name: "How It Works", href: "#how-it-works" },
-  { name: "partnerships", href: "/products" },
-  { name: "about", href: "/about" },
+  { name: "Partnerships", href: "/products" },
+  { name: "About", href: "/about" },
 ]
 
 
@@ -68,7 +68,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
                               Login
                             </Link>
                             <Link href="/register">
-                              <Button>Sign Up</Button>
+                              <Button>Start Investing</Button>
                             </Link>
                           </>
                         )}
@@ -90,6 +90,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
             }
           
           </nav>
+          | 
             {session ? (
               <Link href="/dashboard">
                 <Button variant="outline">Dashboard</Button>
@@ -100,7 +101,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
                   Login
                 </Link>
                 <Link href="/register">
-                  <Button>Sign Up</Button>
+                  <Button className='bg-yellow-500 cursor-pointer hover:bg-yellow-400 text-black'>Start Investing</Button>
                 </Link>
               </>
             )}
