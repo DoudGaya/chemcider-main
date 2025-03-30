@@ -26,39 +26,7 @@ export default async function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-violet-50 to-white">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-              Commodex
-            </span>
-          </Link>
-          <nav className="hidden md:flex gap-6">
-            <Link href="/#opportunities" className="text-sm font-medium hover:text-primary">
-              Opportunities
-            </Link>
-            <Link href="/#how-it-works" className="text-sm font-medium hover:text-primary">
-              How It Works
-            </Link>
-            <Link href="/products" className="text-sm font-medium text-primary">
-              Marketplace
-            </Link>
-            <Link href="/#contact" className="text-sm font-medium hover:text-primary">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/login" className="text-sm font-medium hover:text-primary">
-              Login
-            </Link>
-            <Link href="/register">
-              <Button>Sign Up</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      <main className="container py-12">
+      <main className="container mx-auto py-12">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4">Investment Opportunities</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -91,7 +59,7 @@ export default async function ProductsPage() {
                     </div>
                     <div className="h-2 w-full rounded-full bg-muted">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-600"
+                        className="h-full rounded-full bg-gradient-to-r bg-yellow-500"
                         style={{ width: `${Math.round((product.currentAmount / product.targetAmount) * 100)}%` }}
                       ></div>
                     </div>
@@ -107,7 +75,7 @@ export default async function ProductsPage() {
               </CardContent>
               <CardFooter>
                 <Link href={`/products/${product.id}`} className="w-full">
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-violet-600">View Details</Button>
+                  <Button className="w-full bg-gradient-to-r bg-green-500">View Details</Button>
                 </Link>
               </CardFooter>
             </Card>
@@ -122,21 +90,7 @@ export default async function ProductsPage() {
         </div>
       </main>
 
-      <footer className="w-full border-t bg-background">
-        <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-          <p className="text-center text-sm text-muted-foreground md:text-left">
-            &copy; {new Date().getFullYear()} Commodex. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Terms of Service
-            </Link>
-          </div>
-        </div>
-      </footer>
+   
     </div>
   )
 }

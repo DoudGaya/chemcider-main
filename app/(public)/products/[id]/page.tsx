@@ -39,7 +39,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const profit = (product.unitAmount * (product.returnPerCycle / 100) * product.cycle).toFixed(2)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-violet-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br ">
       <main className="container mx-auto py-12">
         <div className="mb-8">
           <Link href="/products" className="flex items-center text-sm text-muted-foreground hover:text-primary mb-4">
@@ -61,14 +61,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         <div className="grid gap-8 md:grid-cols-3">
           <div className="md:col-span-2 space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Product Description</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: product.description }} />
-              </CardContent>
-            </Card>
+            <div className=" px-0">
+              <div className="">
+                {/* <img
+                  src={product.imageUrl}
+                  alt={product.title}
+                  className="h-64 w-full rounded-lg object-cover object-center"
+                /> */}
+              </div>
+              <div className=" border-none">
+                <div className="prose " dangerouslySetInnerHTML={{ __html: product.description }} />
+              </div>
+            </div>
 
             <Card>
               <CardHeader>

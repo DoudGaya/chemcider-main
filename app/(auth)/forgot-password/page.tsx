@@ -59,11 +59,11 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-teal-50 to-white p-4">
-      <Card className="w-full max-w-md">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br p-4">
+      <div className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-2">
-            <Flask className="h-10 w-10 text-primary" />
+            {/* <Flask className="h-10 w-10 text-primary" /> */}
           </div>
           <CardTitle className="text-2xl text-center">Forgot password</CardTitle>
           <CardDescription className="text-center">
@@ -89,7 +89,7 @@ export default function ForgotPasswordPage() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="john.doe@example.com" {...field} />
+                        <Input type="email" placeholder="doud@example.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -97,7 +97,7 @@ export default function ForgotPasswordPage() {
                 />
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-teal-500 to-blue-600"
+                  className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:ring-yellow-500"
                   disabled={isPending}
                 >
                   {isPending ? "Sending..." : "Send reset link"}
@@ -111,7 +111,7 @@ export default function ForgotPasswordPage() {
             Back to login
           </Link>
         </CardFooter>
-      </Card>
+      </div>
     </div>
   )
 }

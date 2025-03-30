@@ -25,57 +25,12 @@ export default async function PrivateLayout({
   if (session.user.role === UserRole.USER && pathname.startsWith("/dashboard") && !pathname.startsWith("/admin")) {
     redirect("/admin/dashboard")
   }
-
+  
   // If regular user is trying to access admin routes
   if (session.user.role === UserRole.ADMIN && pathname.startsWith("/admin")) {
-    redirect("/dashboard")
+    redirect("/user/dashboard")
   }
 
   return <>{children}</>
 }
 
-
-
-// import type { Metadata } from "next";
-// import { Toaster } from "@/components/ui/sonner"
-// import { getServerSession } from "next-auth";
-// import { authOptions } from "@/lib/auth";
-// import { UserRole } from "@prisma/client";
-// import { redirect } from "next/navigation";
-
-
-
-
-// export const metadata: Metadata = {
-//   title: "Acmegrid Inc | Auth.",
-//   description: "Nigerian Commodity Investment Company",
-// };
-
-// export default async function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-
-//   const session = await getServerSession(authOptions)
-
-//   // Check if we're on the homepage and user is logged in
-//   // const isHomePage = typeof window !== "undefined" ? window.location.pathname === "/" : false
-
-//   // if (session) {
-//   //   // Redirect based on user role
-//   //   if (session.user.role === "ADMIN") {
-//   //     redirect("/admin/dashboard")
-//   //   } else {
-//   //     redirect("/dashboard")
-//   //   }
-//   // }
-
-
-//   return (
-//         <div className="">
-//             {children}
-//             <Toaster />
-//         </div>
-//   );
-// }

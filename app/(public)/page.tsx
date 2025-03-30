@@ -42,40 +42,40 @@ export default async function Home() {
     <div className="flex min-h-screen flex-col">
       {/* <DashboardHeader user={session?.user} /> */}
       <main className="flex-1">
-        <section className="w-full py-16">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="w-full py-10">
+          <div className="container mx-auto px-6 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-5xl/none text-yellow-500 bg-clip-text">
+                <div className=" flex flex-col pt-12 md:py-0 md:space-y-3 space-y-6">
+                  <h1 className="text-4xl text-center md:text-start font-bold tracking-tighter sm:text-5xl xl:text-5xl/none text-yellow-500 bg-clip-text">
                     The Future of Commodity Investment
                   </h1>
-                  <p className="max-w-[600px] text-gray-800 md:text-xl">
+                  <p className="max-w-[600px] font-sans text-center md:text-start text-gray-800 md:text-xl">
                     Acmegrid connects investors with high-yield commodity opportunities across global markets. Start
                     building your portfolio today.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <div className="flex flex-col gap-2 py-6 md:px-0 md:flex-row">
                   <Link href="/register">
-                    <Button size="lg" className=" text-black bg-yellow-500 ">
+                    <Button size="lg" className=" w-full text-black bg bg-yellow-500 ">
                       Start Investing
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/products">
-                    <Button size="lg" variant="outline" className=" border-yellow-500">
+                    <Button size="lg" variant="outline" className="w-full border-yellow-500">
                       Explore Opportunities
                     </Button>
                   </Link>
                 </div>
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                   <div className="flex items-center">
-                    <TrendingUp className="mr-1 h-4 w-4 text-primary" />
-                    <span>15-25% Annual Returns</span>
+                    <TrendingUp className="mr-1 stroke-green-600 h-4 w-4 text-primary" />
+                    <span>5-25% Annual Returns</span>
                   </div>
                   <div className="flex items-center">
-                    <Users className="mr-1 h-4 w-4 text-primary" />
-                    <span>10,000+ Investors</span>
+                    <Users className="mr-1 h-4 stroke-green-600 w-4 text-primary" />
+                    <span>100+ Investors</span>
                   </div>
                 </div>
               </div>

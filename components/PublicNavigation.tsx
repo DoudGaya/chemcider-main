@@ -59,7 +59,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
                   }
                     <div className=" md:hidden py-3 border-t-2 flex flex-col  gap-4">
                         {session ? (
-                          <Link href="/dashboard">
+                          <Link href="/user/dashboard">
                             <Button variant="outline">Dashboard</Button>
                           </Link>
                         ) : (
@@ -92,7 +92,7 @@ const PublicNavigation = ({ session }: {session: any}) => {
           </nav>
           | 
             {session ? (
-              <Link href="/dashboard">
+              <Link href="/user/dashboard">
                 <Button variant="outline">Dashboard</Button>
               </Link>
             ) : (

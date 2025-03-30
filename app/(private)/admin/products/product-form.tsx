@@ -166,7 +166,8 @@ export function ProductForm({ product }: ProductFormProps) {
             name="targetAmount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Target Amount ($)</FormLabel>
+                <FormLabel>Target Amount (₦
+)</FormLabel>
                 <FormControl>
                   <Input type="number" step="0.01" min="0" {...field} />
                 </FormControl>
@@ -181,7 +182,7 @@ export function ProductForm({ product }: ProductFormProps) {
             name="unitAmount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Unit Amount ($)</FormLabel>
+                <FormLabel>Unit Amount (₦)</FormLabel>
                 <FormControl>
                   <Input type="number" step="0.01" min="0" {...field} />
                 </FormControl>

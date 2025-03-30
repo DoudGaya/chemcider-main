@@ -21,6 +21,30 @@ import {
 } from "@/components/ui/popover"
 
 
+const navLinks = [
+  {
+    name: "Dashboard",
+    href: "/user/dashboard",
+    icon: <LineChart className="h-4 w-4" />,
+  },
+  {
+    name: "Wallet",
+    href: "/user/wallet",
+    icon: <Download className="h-4 w-4" />,
+  },
+  {
+    name: "opportunities",
+    href: "/user/opportunities",
+    icon: <Download className="h-4 w-4" />,
+  },
+  {
+    name: "Investments",
+    href: "/user/investments",
+    icon: <ArrowUpRight className="h-4 w-4" />,
+  },
+]
+
+
 const DashboardHeader = ( {user}: {user: any} ) => {
   return (
          <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -34,7 +58,7 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                <div className="relative h-full items-center flex">
                 <div className=" flex items-center h-full my-auto">
                     <Sheet >
-            <SheetTrigger>
+            <SheetTrigger className=' flex md:hidden'>
                    <MenuIcon className="h-8 w-8 text-primary" />
             </SheetTrigger>
             <SheetContent className=' h-full' side='left'>
@@ -45,11 +69,10 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                   >
                      <Image src={logo} alt="logo" width={40} className=' h-10 object-left object-contain w-full' height={40} />
                   </Link>
-                  
                  </div>
                 </SheetTitle>
                 <div className=" flex flex-col h-full py-4 gap-4">
-                <form action="/api/auth/signout" method="POST">
+                       <form action="/api/auth/signout" method="POST">
                       <Button
                         type="submit"
                         variant="ghost"
@@ -60,7 +83,15 @@ const DashboardHeader = ( {user}: {user: any} ) => {
                         Sign Out
                       </Button>
                       </form>
-                
+
+                      <div className="">
+                        {
+                          navLinks.map(item => <Link href={ item.href } key={item.href} className=' flex flex-row space-x-2' > 
+                          {item.icon}
+                          <p>{item.name}</p>
+                          </Link>)
+                        }
+                      </div>
                 </div>
               </SheetHeader>
             </SheetContent>

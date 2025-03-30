@@ -93,7 +93,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <div className="w-full bg-yellow-50 drop-shadow-sm backdrop-blur-sm py-20 rounded-lg max-w-md">
+      <div className="w-full backdrop-blur-sm py-20 rounded-lg max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-2">
             {/* <Flask className="h-10 w-10 text-primary" /> */}
