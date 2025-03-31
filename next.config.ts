@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     JWT_SECRET: process.env.JWT_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
+    PAYSTACK_BASE_URL: process.env.PAYSTACK_BASE_URL,
+    PAYSTACK_SECRET_KEY: process.env.PAYSTACK_SECRET_KEY,
 
   },
 };

@@ -176,7 +176,7 @@ function OpportunityCard({ opportunity, onInvest }: OpportunityCardProps) {
       <CardFooter className="pt-4 border-t">
         <div className="flex gap-3 w-full">
           <Button variant="outline" className="flex-1" asChild>
-            <Link href={`/dashboard/opportunities/${opportunity.id}`}>Details</Link>
+            <Link href={`/user/opportunities/${opportunity.id}`}>Details</Link>
           </Button>
           {isActive && (
             <Button
