@@ -41,7 +41,7 @@ export default async function RootLayout({
           </div>
         <div className=" w-full flex-col">
           <DashboardHeader user={user} />
-         <div className=" p-6">
+         <div className=" p-6 overflow-scroll">
          {children}
          </div>
         </div>
