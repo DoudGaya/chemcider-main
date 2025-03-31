@@ -72,7 +72,7 @@ export default async function DashboardPage() {
   }))
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col">
       <main className="flex-1">
         <div className="container mx-auto px-6 py-6">
           <div className="grid gap-6 md:grid-cols-2 grid-cols-2 lg:grid-cols-4">

@@ -50,9 +50,9 @@ const DashboardHeader = ( {user}: {user: any} ) => {
          <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
            <div className="container px-8 mx-auto flex h-16 items-center justify-between">
              <div className="flex items-center gap-2">
-               <Link href="/" className="flex items-center gap-2">
+               {/* <Link href="/" className="flex items-center gap-2">
                  <Image src={logo} alt="logo" width={40} className=' h-10 object-contain w-full' height={40} />
-               </Link>
+               </Link> */}
              </div>
              <div className="flex items-center gap-4">
                <div className="relative h-full items-center flex">
